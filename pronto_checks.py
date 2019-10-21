@@ -16,7 +16,11 @@ def test_create_dataframe(df, cols):
     conditions.append(list(df) == cols)
 
     # Do the values in each column have the same python type
-    conditions.append(len(df.dtypes.unique()) == 1)
+    same_type = True
+    for col in list(df):
+        if len(df[col].dtype) != 0:
+            same_type = False
+    conditions.append(same_type)
 
     # Are there at least 10 rows in the dataframe?
     conditions.append(len(df) >= 10)
