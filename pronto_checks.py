@@ -1,5 +1,3 @@
-from urllib.request import urlopen
-from io import StringIO
 import pandas as pd
 
 
