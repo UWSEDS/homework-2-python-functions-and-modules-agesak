@@ -21,9 +21,9 @@ def test_create_dataframe(df, cols):
             types.append(type(row))
         types = set(types)    
         col_types.append(len(types)==1)
-    conditions.append(col_types)
+    conditions = conditions + col_types
 
     # Are there at least 10 rows in the dataframe?
     conditions.append(len(df) >= 10)
 
-    return all(conditions) == True
+    return all(conditions)
